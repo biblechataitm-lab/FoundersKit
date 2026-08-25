@@ -2,41 +2,32 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Rocket, FileText, Award, DollarSign, ArrowUpRight, Search, CheckCircle2, ShieldCheck, Briefcase, Sparkles } from 'lucide-react';
+import { Rocket, FileText, DollarSign, Award, Gift, Search, ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck, Star, Users } from 'lucide-react';
 
-const STAGES = [
+const FOUNDER_STAGES = [
   {
-    id: 'incorporation',
-    stageName: 'Stage 1: Inception & Legal',
-    badge: 'Day 0 Setup',
-    checklist: [
-      'Delaware C-Corp Filing & EIN Registration',
-      'Founder 83(b) Election & IP Assignment Agreement',
-      'Stock Purchase Agreement & Vesting Schedule',
-    ],
-    perk: '$5,000 in Stripe Atlas & Legal Credits',
+    id: 'inception',
+    stage: 'Stage 1: Inception & Legal Formation',
+    focus: 'Delaware C-Corp • 83(b) Election • Founder Vesting',
+    timeline: 'Weeks 1-4',
+    perks: '$100,000+ Cloud & Legal Credits Included',
+    checklist: ['Clerky / Stripe Atlas Setup', 'Co-founder IP Assignment', 'Initial Cap Table Allocation'],
   },
   {
-    id: 'fundraise',
-    stageName: 'Stage 2: Seed Round & SAFE',
-    badge: 'Fundraising',
-    checklist: [
-      'YC Standard Post-Money SAFE ($2M Cap Template)',
-      'Dynamic Cap Table & Dilution Modeling Spreadsheet',
-      '12-Slide High-Conversion Seed Pitch Deck',
-    ],
-    perk: '$100,000 AWS & Azure Cloud Credits',
+    id: 'seed-safe',
+    stage: 'Stage 2: Seed Round & SAFE Notes',
+    focus: 'YC Post-Money SAFE • Cap Table Modeling • Investor CRM',
+    timeline: 'Months 2-5',
+    perks: 'Pre-vetted Angel & Micro-VC Syndicate Access',
+    checklist: ['SAFE vs Priced Model', 'Data Room Diligence Vault', 'Lead Investor Term Sheet'],
   },
   {
     id: 'gtm-scale',
-    stageName: 'Stage 3: GTM & First 100 Users',
-    badge: 'Growth Engine',
-    checklist: [
-      'Cold Outbound AI Sequencer & Lead Scraping Kit',
-      'Product Hunt / Hacker News Launch Checklist',
-      'Customer Discovery & ICP Interview Scripts',
-    ],
-    perk: '6 Months Free Notion & Hubspot Enterprise',
+    stage: 'Stage 3: GTM & First 100 Paying Users',
+    focus: 'Product Hunt Launchpad • Cold Email Stack • Stripe Billing',
+    timeline: 'Months 6-12',
+    perks: 'Growth Mentorship & Zero-Fee Payment Rails',
+    checklist: ['Landing Page Conversion Tuning', 'Automated Outbound Pipeline', 'Retention & Churn Dashboard'],
   },
 ];
 
@@ -44,24 +35,27 @@ export function HeroSection() {
   const [activeStageIndex, setActiveStageIndex] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const currentStage = STAGES[activeStageIndex];
+  const currentStage = FOUNDER_STAGES[activeStageIndex];
 
   return (
     <section className="founderskit-hero">
+      <div className="founderskit-ambient-glow" />
+
       <div className="founderskit-hero-grid">
-        {/* Left: Founder Value Proposition */}
+        {/* Left: Venture Value Proposition */}
         <div className="founderskit-hero-content">
           <div className="founderskit-badge">
-            <Sparkles size={14} className="text-amber-600" />
-            <span>0-to-1 Startup Blueprints & Founder Toolkit</span>
+            <span className="founderskit-spark-gold">✦</span>
+            <span>0-to-1 Startup Execution OS & Stack • 2026</span>
+            <span className="founderskit-badge-pill">VC READY</span>
           </div>
 
           <h1 className="founderskit-title">
-            The Definitive OS for <span className="founderskit-highlight">Early-Stage Founders</span> & Indie Builders.
+            The Complete OS for <span className="founderskit-gold-text">Founders</span>, SAFEs, Pitch Decks & Perks.
           </h1>
 
           <p className="founderskit-lead">
-            Curated legal frameworks, investor-ready pitch decks, cap table calculators, GTM playbooks, and $100k+ in verified startup cloud perks.
+            Everything you need from incorporation to Series A: legal templates, cap table calculators, pitch deck teardowns, and $100k+ in startup credits.
           </p>
 
           {/* Search Box */}
@@ -77,36 +71,65 @@ export function HeroSection() {
             <input
               type="text"
               name="q"
-              placeholder="Search SAFE agreements, pitch decks, cap tables, perks..."
+              placeholder="Search SAFE models, pitch deck templates, founder perks..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="founderskit-search-input"
             />
             <button type="submit" className="founderskit-search-btn">
-              Search OS
+              Explore OS
             </button>
           </form>
 
-          {/* Stage pills */}
+          {/* Dual Action CTAs */}
+          <div className="founderskit-cta-row">
+            <Link href="/category/productivity" className="founderskit-primary-btn">
+              Explore 0-to-1 OS <ArrowRight size={15} />
+            </Link>
+            <Link href="/submit" className="founderskit-secondary-btn">
+              Submit Founder Tool
+            </Link>
+          </div>
+
+          {/* Social Proof */}
+          <div className="founderskit-social-proof">
+            <div className="founderskit-avatar-stack">
+              <span className="founder-avatar av-1">🚀</span>
+              <span className="founder-avatar av-2">💡</span>
+              <span className="founder-avatar av-3">📈</span>
+              <span className="founder-avatar av-4">🏆</span>
+            </div>
+            <div className="founderskit-proof-text">
+              <div className="founderskit-proof-stars">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={12} className="fill-amber-600 text-amber-600" />
+                ))}
+                <span className="founderskit-rating">4.9/5.0</span>
+              </div>
+              <span className="founderskit-subtext">Trusted by 4,100+ venture-backed founders & angels</span>
+            </div>
+          </div>
+
+          {/* Category Pills */}
           <div className="founderskit-tags-row">
-            <span className="founderskit-tags-label">Toolkit:</span>
+            <span className="founderskit-tags-label">Toolkits:</span>
             <div className="founderskit-tags-list">
-              <Link href="/category/legal" className="founderskit-tag-pill">
-                <FileText size={12} /> SAFE Legal Docs
+              <Link href="/category/productivity" className="founderskit-tag-pill">
+                <FileText size={12} /> Legal SAFEs
               </Link>
               <Link href="/category/finance" className="founderskit-tag-pill">
                 <DollarSign size={12} /> Cap Table Math
               </Link>
-              <Link href="/category/productivity" className="founderskit-tag-pill">
-                <Briefcase size={12} /> Pitch Decks
+              <Link href="/category/ai" className="founderskit-tag-pill">
+                <Rocket size={12} /> Pitch Decks
               </Link>
               <Link href="/category/automation" className="founderskit-tag-pill">
-                <Rocket size={12} /> GTM Playbooks
+                <Gift size={12} /> $100k Perks
               </Link>
             </div>
           </div>
 
-          {/* Metrics */}
+          {/* Metrics Strip */}
           <div className="founderskit-metrics-strip">
             <div className="founderskit-metric-box">
               <span className="founderskit-metric-val">$100k+</span>
@@ -120,62 +143,62 @@ export function HeroSection() {
             <div className="founderskit-metric-divider" />
             <div className="founderskit-metric-box">
               <span className="founderskit-metric-val">100% Free</span>
-              <span className="founderskit-metric-desc">Open Templates</span>
+              <span className="founderskit-metric-desc">Verified Blueprints</span>
             </div>
           </div>
         </div>
 
-        {/* Right: Milestone Roadmap & Checklist Card */}
+        {/* Right: Milestone Execution Roadmap Card */}
         <div className="founderskit-roadmap-card">
           <div className="roadmap-card-header">
             <div className="roadmap-title-group">
-              <span className="roadmap-pulse-amber" />
-              <span className="roadmap-header-title">Founder Execution Roadmap</span>
+              <Award size={16} className="text-amber-700" />
+              <span className="roadmap-header-title">Startup Execution Blueprint</span>
             </div>
-            <span className="roadmap-stage-badge">{currentStage.badge}</span>
+            <span className="roadmap-timeline-badge">{currentStage.timeline}</span>
           </div>
 
-          {/* Stage Selector */}
+          {/* Stage Switcher */}
           <div className="roadmap-stage-tabs">
-            {STAGES.map((stage, idx) => (
+            {FOUNDER_STAGES.map((stage, idx) => (
               <button
                 key={stage.id}
                 onClick={() => setActiveStageIndex(idx)}
                 className={`roadmap-stage-btn ${activeStageIndex === idx ? 'active' : ''}`}
                 type="button"
               >
-                {stage.stageName}
+                Stage {idx + 1}
               </button>
             ))}
           </div>
 
-          {/* Checklist Items */}
-          <div className="roadmap-checklist-window">
-            <span className="checklist-heading">ACTIONABLE DELIVERABLES:</span>
-            <div className="checklist-items-list">
-              {currentStage.checklist.map((item, i) => (
-                <div key={i} className="checklist-item-row">
-                  <CheckCircle2 size={15} className="checklist-check-icon" />
-                  <span className="checklist-item-text">{item}</span>
-                </div>
-              ))}
-            </div>
+          {/* Stage Header Info */}
+          <div className="roadmap-stage-info">
+            <h4 className="stage-title">{currentStage.stage}</h4>
+            <p className="stage-focus">{currentStage.focus}</p>
           </div>
 
-          {/* Verified Perk Banner */}
-          <div className="roadmap-perk-banner">
-            <Award size={14} className="text-amber-700" />
-            <span className="perk-banner-text">{currentStage.perk}</span>
+          {/* Actionable Checklist */}
+          <div className="roadmap-checklist">
+            {currentStage.checklist.map((item) => (
+              <div key={item} className="checklist-item">
+                <CheckCircle2 size={13} className="text-amber-700 flex-shrink-0" />
+                <span className="checklist-text">{item}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Perks Banner Inside Card */}
+          <div className="roadmap-perks-box">
+            <Gift size={13} className="text-amber-800 flex-shrink-0" />
+            <span className="perks-text">{currentStage.perks}</span>
           </div>
 
           {/* Card Footer */}
           <div className="roadmap-card-footer">
-            <div className="roadmap-verified-note">
-              <ShieldCheck size={14} className="text-emerald-700" />
-              <span>Lawyer-Reviewed Blueprints</span>
-            </div>
+            <span className="roadmap-verified-text">✓ Standard Delaware & YC Compatible</span>
             <Link href="/submit" className="roadmap-submit-link">
-              Submit Resource <ArrowUpRight size={13} />
+              Submit Tool <ArrowUpRight size={13} />
             </Link>
           </div>
         </div>
