@@ -1,39 +1,50 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const CATEGORIES = [
-  { label: 'All', path: '/' },
-  { label: 'AI & ML', path: '/category/ai' },
-  { label: 'Developer Tools', path: '/category/developer-tools' },
-  { label: 'Productivity', path: '/category/productivity' },
-  { label: 'Search & Data', path: '/category/search-data' },
-  { label: 'Automation', path: '/category/automation' },
-  { label: 'Design & Media', path: '/category/design' },
+  {
+    "label": "All",
+    "path": "/"
+  },
+  {
+    "label": "Incorporation & Legal",
+    "path": "/category/legal"
+  },
+  {
+    "label": "Cap Table & Raise",
+    "path": "/category/fundraising"
+  },
+  {
+    "label": "Go-To-Market",
+    "path": "/category/gtm"
+  },
+  {
+    "label": "Treasury & Finance",
+    "path": "/category/finance"
+  },
+  {
+    "label": "Venture Stack",
+    "path": "/category/startups"
+  },
+  {
+    "label": "Builder Tools",
+    "path": "/category/developer-tools"
+  }
 ];
 
 export function CategoryChips({ activeCategory }: { activeCategory?: string }) {
-  const [currentPath, setCurrentPath] = useState('');
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setCurrentPath(window.location.pathname);
-    }
-  }, []);
-
   return (
     <div className="category-chips-wrapper">
-      <div className="category-chips-list">
+      <div className="category-chips-scroll">
         {CATEGORIES.map((cat) => {
-          const isActive = activeCategory
-            ? cat.path.toLowerCase() === `/category/${activeCategory.toLowerCase()}`
-            : currentPath === cat.path || (cat.path === '/' && (currentPath === '' || currentPath === '/'));
-
+          const isAll = cat.path === '/';
+          const isActive = isAll ? !activeCategory : activeCategory === cat.path.replace('/category/', '');
           return (
             <a
               key={cat.path}
               href={cat.path}
-              className={`category-chip ${isActive ? 'active' : ''}`}
+              className={`chip ${isActive ? 'chip-active' : ''}`}
             >
               {cat.label}
             </a>
