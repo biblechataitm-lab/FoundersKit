@@ -1,35 +1,35 @@
 'use client';
 
 import React from 'react';
-import { Rocket, BarChart3, Users, Layers, Shield, TrendingUp } from 'lucide-react';
-
-const FEATURES = [
-  { icon: Rocket, title: 'Launch Playbooks', desc: 'Step-by-step guides for launching your MVP in 30 days or less.' },
-  { icon: BarChart3, title: 'Metrics Dashboard', desc: 'Track the KPIs that matter — CAC, LTV, churn, and growth rate.' },
-  { icon: Users, title: 'Founder Network', desc: '5,000+ verified founders sharing insights, advice, and war stories.' },
-  { icon: Layers, title: 'Stack Recipes', desc: 'Pre-built tech stacks for different startup stages and verticals.' },
-  { icon: Shield, title: 'Due Diligence', desc: 'Every tool is evaluated for pricing, scalability, and founder-friendliness.' },
-  { icon: TrendingUp, title: 'Funding Radar', desc: 'Track which tools VC-backed startups are using in their stacks.' },
-];
 
 export function FeaturesSection() {
   return (
-    <section className="fk-features">
-      <div className="fk-features-header">
-        <h2 className="fk-section-title">
-          Why <span className="fk-accent-text">FoundersKit</span>
-        </h2>
-        <p className="fk-section-subtitle">More than a directory — a curated ecosystem built for your workflow.</p>
-      </div>
-      <div className="fk-features-grid">
-        {FEATURES.map((f) => (
-          <div key={f.title} className="fk-feature-card">
-            <div className="fk-feature-icon"><f.icon size={22} /></div>
-            <h3 className="fk-feature-title">{f.title}</h3>
-            <p className="fk-feature-desc">{f.desc}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+    <section class="editorial-roadmap container">
+  <div class="editorial-header-rule">
+    <h3>The Four Stages of Startup Infrastructure</h3>
+  </div>
+  <div class="editorial-stage-grid">
+    <div class="editorial-stage-card">
+      <span class="stage-roman">I</span>
+      <h4>Formation &amp; Legal</h4>
+      <p>Delaware C-Corp incorporation, 83(b) elections, founder vesting agreements, and IP assignments.</p>
+    </div>
+    <div class="editorial-stage-card">
+      <span class="stage-roman">II</span>
+      <h4>Treasury &amp; Capital</h4>
+      <p>SAFE issuance, venture debt facilities, FDIC sweep accounts, and high-yield operational cash.</p>
+    </div>
+    <div class="editorial-stage-card">
+      <span class="stage-roman">III</span>
+      <h4>Execution Cadence</h4>
+      <p>Opinionated issue tracking, continuous delivery pipelines, and asynchronous team communication.</p>
+    </div>
+    <div class="editorial-stage-card">
+      <span class="stage-roman">IV</span>
+      <h4>Scale &amp; Governance</h4>
+      <p>Automated 409A valuations, board resolution records, SOC2 compliance, and global payroll.</p>
+    </div>
+  </div>
+</section>
   );
 }

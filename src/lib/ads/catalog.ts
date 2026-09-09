@@ -4,29 +4,129 @@ import { request, mockMode } from './client';
 const MOCK_PRODUCTS: Product[] = [
   {
     "id": "fk-1",
-    "title": "VentureDeck AI",
-    "tagline": "Interactive investor pitch deck builder with real-time cap-table modeling",
-    "description": "Streamline founder storytelling, slide mechanics, and venture partner deal rooms in one dashboard.",
-    "logo": "https://placehold.co/96x96/f5f0e6/d4af37?text=VD",
-    "link": "https://example.com/venturedeck",
-    "category": "Fundraising & Pitch",
+    "title": "Stripe Atlas",
+    "tagline": "Incorporate in Delaware, open a US bank account, and issue founder stock in days",
+    "link": "https://stripe.com/atlas",
+    "category": "Developer Tools",
+    "upvotes": 430,
     "tags": [
-      "startups",
-      "pitch-deck",
-      "fundraising"
+      "incorporation",
+      "legal",
+      "startup"
+    ],
+    "techStack": [
+      "Stripe",
+      "Legaltech"
+    ],
+    "maker": {
+      "name": "Stripe Team",
+      "avatar": "https://placehold.co/64x64/cc785c/ffffff?text=SA"
+    }
+  },
+  {
+    "id": "fk-2",
+    "title": "Carta Equity",
+    "tagline": "The gold standard platform for startup cap tables, 409A valuations, and equity compensation",
+    "link": "https://carta.com",
+    "category": "Productivity",
+    "upvotes": 410,
+    "tags": [
+      "cap-table",
+      "equity",
+      "finance"
     ],
     "techStack": [
       "Next.js",
-      "Tailwind",
       "PostgreSQL"
     ],
-    "coverImages": [],
-    "upvotes": 367,
-    "launchedAt": "2026-08-18T05:12:33.188Z",
     "maker": {
-      "name": "Claire Dupont",
-      "username": "cdupont",
-      "avatar": "https://placehold.co/64x64/ebe4d5/d4af37?text=C"
+      "name": "Henry Ward",
+      "avatar": "https://placehold.co/64x64/1e3a8a/ffffff?text=CW"
+    }
+  },
+  {
+    "id": "fk-3",
+    "title": "DocSend",
+    "tagline": "Secure document sharing and pitch deck analytics with real-time slide-by-slide investor tracking",
+    "link": "https://docsend.com",
+    "category": "Productivity",
+    "upvotes": 370,
+    "tags": [
+      "pitch-deck",
+      "fundraising",
+      "analytics"
+    ],
+    "techStack": [
+      "Dropbox",
+      "Analytics"
+    ],
+    "maker": {
+      "name": "Russ Heddleston",
+      "avatar": "https://placehold.co/64x64/10b981/ffffff?text=DS"
+    }
+  },
+  {
+    "id": "fk-4",
+    "title": "Linear",
+    "tagline": "The issue tracking and product planning tool built specifically for high-velocity startup teams",
+    "link": "https://linear.app",
+    "category": "Developer Tools",
+    "upvotes": 350,
+    "tags": [
+      "product",
+      "issues",
+      "velocity"
+    ],
+    "techStack": [
+      "React",
+      "Sync Engine",
+      "GraphQL"
+    ],
+    "maker": {
+      "name": "Karri Saarinen",
+      "avatar": "https://placehold.co/64x64/6366f1/ffffff?text=LN"
+    }
+  },
+  {
+    "id": "fk-5",
+    "title": "Brex Cash",
+    "tagline": "Corporate credit cards, global payments, and venture treasury management for tech startups",
+    "link": "https://brex.com",
+    "category": "Automation",
+    "upvotes": 320,
+    "tags": [
+      "banking",
+      "treasury",
+      "cards"
+    ],
+    "techStack": [
+      "Fintech",
+      "AWS"
+    ],
+    "maker": {
+      "name": "Pedro Franceschi",
+      "avatar": "https://placehold.co/64x64/f59e0b/ffffff?text=BX"
+    }
+  },
+  {
+    "id": "fk-6",
+    "title": "Mercury Bank",
+    "tagline": "Modern banking designed for startups with FDIC insurance, wire automations, and venture debt",
+    "link": "https://mercury.com",
+    "category": "Automation",
+    "upvotes": 310,
+    "tags": [
+      "banking",
+      "venture",
+      "finance"
+    ],
+    "techStack": [
+      "Haskell",
+      "React"
+    ],
+    "maker": {
+      "name": "Immad Akhund",
+      "avatar": "https://placehold.co/64x64/14b8a6/ffffff?text=MB"
     }
   }
 ];
