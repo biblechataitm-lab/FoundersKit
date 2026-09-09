@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Search, TrendingUp, PlusCircle, Menu, X } from 'lucide-react';
 
@@ -40,19 +39,19 @@ export function Header({ siteName = 'FoundersKit' }: { siteName?: string }) {
   return (
     <header ref={headerRef} className={`fk-nav ${scrolled ? 'fk-nav-scrolled' : ''}`}>
       <div className="fk-nav-inner">
-        <Link href="/" className="fk-nav-brand">
+        <a href="/" className="fk-nav-brand">
           <span className="fk-nav-brand-text">{siteName}</span>
-        </Link>
+        </a>
         <form onSubmit={handleSearchSubmit} className="fk-nav-search">
           <Search size={14} className="fk-nav-search-icon" />
           <input type="text" placeholder="Search..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
         </form>
         <nav className="fk-nav-links">
-          <Link href="/trends" className={`fk-nav-link ${pathname === '/trends' ? 'active' : ''}`}>
+          <a href="/trends" className={`fk-nav-link ${pathname === '/trends' ? 'active' : ''}`}>
             <TrendingUp size={13} /> Trends
-          </Link>
-          <Link href="/sponsor" className={`fk-nav-link ${pathname === '/sponsor' ? 'active' : ''}`}>Sponsor</Link>
-          <Link href="/submit" className="fk-nav-cta"><PlusCircle size={14} /> Submit</Link>
+          </a>
+          <a href="/sponsor" className={`fk-nav-link ${pathname === '/sponsor' ? 'active' : ''}`}>Sponsor</a>
+          <a href="/submit" className="fk-nav-cta"><PlusCircle size={14} /> Submit</a>
         </nav>
         <button className="fk-nav-mobile-toggle" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -60,10 +59,10 @@ export function Header({ siteName = 'FoundersKit' }: { siteName?: string }) {
       </div>
       {mobileOpen && (
         <div className="fk-nav-mobile-menu">
-          <Link href="/trends" onClick={() => setMobileOpen(false)}>Trends</Link>
-          <Link href="/sponsor" onClick={() => setMobileOpen(false)}>Sponsor</Link>
-          <Link href="/submit" onClick={() => setMobileOpen(false)}>Submit</Link>
-          <Link href="/about" onClick={() => setMobileOpen(false)}>About</Link>
+          <a href="/trends" onClick={() => setMobileOpen(false)}>Trends</a>
+          <a href="/sponsor" onClick={() => setMobileOpen(false)}>Sponsor</a>
+          <a href="/submit" onClick={() => setMobileOpen(false)}>Submit</a>
+          <a href="/about" onClick={() => setMobileOpen(false)}>About</a>
         </div>
       )}
     </header>

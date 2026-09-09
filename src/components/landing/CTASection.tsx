@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { ArrowRight, Rocket } from 'lucide-react';
 
 export function CTASection() {
@@ -12,12 +11,12 @@ export function CTASection() {
         <h2 className="fk-cta-title">List Your Startup Tool</h2>
         <p className="fk-cta-subtitle">Reach 5,000+ active founders building the next generation of startups.</p>
         <div className="fk-cta-buttons">
-          <Link href="/submit" className="fk-cta-btn-primary">
+          <a href="/submit" className="fk-cta-btn-primary">
             <Rocket size={15} /> Submit Product
-          </Link>
-          <Link href="/sponsor" className="fk-cta-btn-secondary">
+          </a>
+          <a href="/sponsor" className="fk-cta-btn-secondary">
             Sponsor <ArrowRight size={14} />
-          </Link>
+          </a>
         </div>
       </div>
     </section>

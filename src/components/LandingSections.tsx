@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { Award, FileText, Calculator, Gift, ArrowRight, CheckCircle2, DollarSign, TrendingUp, ShieldCheck, Sparkles } from 'lucide-react';
 
 export function LandingSections() {
@@ -150,12 +149,12 @@ export function LandingSections() {
             Get instant access to legal templates, financial calculators, investor databases, and founder community discounts.
           </p>
           <div className="launch-cta-buttons">
-            <Link href="/submit" className="launch-cta-primary">
+            <a href="/submit" className="launch-cta-primary">
               Submit Founder Tool <ArrowRight size={15} />
-            </Link>
-            <Link href="/category/startups" className="launch-cta-secondary">
+            </a>
+            <a href="/category/startups" className="launch-cta-secondary">
               Explore Founder OS
-            </Link>
+            </a>
           </div>
         </div>
       </section>
