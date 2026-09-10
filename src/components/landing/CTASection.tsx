@@ -9,7 +9,7 @@ export function CTASection() {
       <div className="fk-cta-glow" aria-hidden="true" />
       <div className="fk-cta-content">
         <h2 className="fk-cta-title">List Your Startup Tool</h2>
-        <p className="fk-cta-subtitle">Reach 5,000+ active founders building the next generation of startups.</p>
+        <p className="fk-cta-subtitle">Reach active founders building the next generation of startups.</p>
         <div className="fk-cta-buttons">
           <a href="/submit" className="fk-cta-btn-primary">
             <Rocket size={15} /> Submit Product
